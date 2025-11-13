@@ -1,6 +1,7 @@
 # Folder
 .vs/
 data_collection/
+.DS_Store
 
 # File
 Test.ipynb
