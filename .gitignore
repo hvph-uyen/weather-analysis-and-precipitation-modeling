@@ -8,3 +8,4 @@ data_collection/
 Test.ipynb
 .cache.sqlite
 .DS_Store
+data_analysis-checkpoint.ipynb
