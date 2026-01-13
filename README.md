@@ -18,8 +18,26 @@ Dự án này tập trung vào việc thu thập, xử lý và phân tích dữ 
 Mục tiêu của dự án là tìm hiểu các quy luật khí tượng, các yếu tố tác động đến lượng mưa và xây dựng mô hình dự báo để hỗ trợ công tác cảnh báo sớm.
 
 ---
+### 3. Tổng quan dataset
+#### 3.1. Thu thập dữ liệu
+Dữ liệu được thu thập từ **Meteostat API**, các đặc trưng gồm:
+- latitude, longitude: cặp (vĩ độ, kinh độ)
+- datetime: thời điểm dữ liệu được ghi lại theo giờ trong ngày.
+- temperature_2m (độ C): nhiệt độ không khí được đo ở độ cao 2m so với mặt đất, trung bình theo giờ trong ngày.
+- dewpoint_2m (độ C): nhiệt độ điểm sương, nhiệt độ hơi nước cần lạnh đi để đạt 100% độ ẩm, từ đó bắt đầu ngưng tụ.
+- relativehumidity_2m (%): độ ẩm tương đối (lương hơi nước trong không khí / lượng tối đa không khí ở nhiệt độ đó có thể giữ).
+- precipitation (mm): lượng mưa.
+- windspeed_10m (km/h): tốc độ gió ở độ cao 10m so với mặt đất.
+- winddirection_10m (độ): hướng gió.
+- pressure_msl (hPa): áp suất tại mực nước biển trung bình, là chuẩn để phân biệt áp cao/thấp.
 
-### 3. Cấu trúc Dự án
+#### 3.2. Tiền xử lý
+Dữ liệu có missing values, được điền bằng KNN.
+---
+
+4. GUGUGAGA
+---
+### 5. Cấu trúc Dự án
 
 ```
   ├── data/ 
@@ -41,7 +59,7 @@ Mục tiêu của dự án là tìm hiểu các quy luật khí tượng, các y
 
 ---
 
-### 4. Yêu cầu hệ thống
+### 6. Yêu cầu hệ thống
 Để chạy được các notebook, hệ thống cần có các thư viện Python sau:
 ```bash
 pip install pandas numpy matplotlib seaborn plotly windrose scikit-learn
@@ -49,7 +67,7 @@ pip install pandas numpy matplotlib seaborn plotly windrose scikit-learn
 
 ---
 
-### 5. Kết luận của dự án
+### 7. Kết luận của dự án
 1. Vai trò của Độ ẩm: Độ ẩm là biến số quan trọng nhất ("nhiên liệu" cho mưa). Khi độ ẩm bão hòa kết hợp với điều kiện địa hình Huế, mưa lớn rất dễ xảy ra.
 
 2. Cảnh báo sớm: Đối với các trận mưa lịch sử (2025), dấu hiệu nhận biết không phải là sự biến động áp suất tức thời mà là sự tích tụ độ ẩm cao trong khí quyển kéo dài nhiều ngày trước đó.
